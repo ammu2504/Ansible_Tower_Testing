@@ -1,0 +1,20 @@
+---
+- name: hwreport
+  hosts: all
+  ignore_errors: yes
+  tasks:
+  - name: collect report
+    set_fact:
+        HOSTNAME: "{{ ansible_hostname }}"
+        MEMORY: "{{ ansible_memtotal_mb  }}"
+        BIOS: "{{ ansible_bios_version }}"
+        CPU: "{{ ansible_processor }}"
+  - copy:
+      content:  |
+        # hwreport
+        HOSTNAME={{ HOSTNAME | default('NONE')}}
+        MEMORY={{ MEMORY | default('NONE')}}
+        BIOS={{ BIOS  | default('NONE')}}
+        CPU={{ CPU | default('NONE')}}
+        VDA_DISK_SIZE={{ VDA_DISK_SIZE | default('NONE') }}
+      dest: /tmp/hwreport.txt
