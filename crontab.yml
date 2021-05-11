@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+   - name: "Cronjob Entry"
+     cron:
+      name: "#ibmssh_failed_log_reset"
+      user: "root"
+      minute: *
+      hour: "*"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: /var/opt/ibmssh_failed_log_reset.sh 2>&1 " >> /tmp/ibmssh_failed
