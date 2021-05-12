@@ -4,4 +4,5 @@
    - name: "Cronjob Entry"
      ansible.builtin.cron:
        name: "#ibmssh_failed_log_reset 3 tetsing"
+       user: "root"
        job: /var/opt/ibmssh_failed_log_reset.sh Priya testing " >> /tmp/ibmssh_failed
