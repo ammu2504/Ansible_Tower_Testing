@@ -1,0 +1,4 @@
+- cron:
+    name: "#ibmssh_failed_log_reset"
+    user: root
+    job: "/var/opt/ibmssh_failed_log_reset.sh 2>&1 " >> /tmp/ibmssh_failed"
