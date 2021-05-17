@@ -4,5 +4,5 @@
    - name: "Cronjob Entry"
      cron:
        name: "#ibmssh_failed_log_reset 3 tetsing"
-       user: root
+       user: ec2-user
        job: "/var/opt/ibmssh_failed_log_reset.sh Priya testing  >> /tmp/ibmssh_failed"
